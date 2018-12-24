@@ -1,0 +1,207 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(http-equiv='X-UA-Compatible', content='ie=edge')
+        meta(name='description', content='Thu mua lúa gạo, thức ăn chăn nuôi giá cả hợp lý tại Quảng Trị')
+        meta(name='author', content='Nguyễn Như Sơn')
+        title Thu mua lúa gạo, thức ăn chăn nuôi Quảng Trị
+        // Load cdn  Css Boostrap
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        // Load cdn Jquery Boostrap
+        script(src='/js/jquery-3.3.1.min.js')
+        script(src='/js/popper.min.js')
+        // Load cdn  JavaScript Boostrap
+        script(src='/js/bootstrap.min.js')
+        script(src='/js/fontawesome-all.min.js')
+        // Load app CSS
+        link(rel='stylesheet', href='/css/myCSS.css')
+        // Load app JavaScript
+        
+        block head
+
+    body
+        header
+            .row.header-top
+                ul.category-top
+                    li
+                        a(href='#') Hệ thông bán hàng
+                        |  |
+                    li
+                        i.fas.fa-phone
+                        a(href='#')  Bán hàng trực tuyến
+                        |  |
+                    li
+                        i.fas.fa-dollar-sign
+                        a(href='#')  Mua hàng nợ
+                        |  |
+                    li
+                        i.fas.fa-box-open
+                        a(href='#')  Khuyến mại
+                        |  |
+                    li
+                        a(href='/employer')  Nhân viên đăng nhập
+        header
+            .container
+                #navbar.row.info
+                    .col-xs-12.col-sm-12.col-md-2.text-center.m-auto
+                        a(href="/")
+                            span#header-logo.mx-auto.d-block
+                                img(src='/images/Logo.png', alt='Lúa gạo Quảng Trị')
+                        label KHOAI TÂY
+                    .col-xs-12.col-sm-12.col-md-3.format-pay.m-auto
+                        .pay.m-auto
+                            .icon-left
+                                i.fas.fa-calculator
+                            .title-right
+                                span Thanh toán
+                                p Khi nhận hàng
+                    .col-xs-12.col-sm-12.col-md-3.m-auto.text-center
+                        //
+                            <div id="header-search">
+                            <div class="input-group">
+                            <input type="text" class="form-control" id="headsearch" placeholder="Gõ từ khóa tìm kiếm">
+                            <button type="submit" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+                            </div>
+                            </div>
+                        .lie.m-auto
+                            .icon-left
+                                i.fas.fa-sync-alt
+                            .title-right
+                                span Đổi trả hàng
+                                p Không ưa ý
+                    .col-xs-12.col-sm-12.col-md-4.m-auto
+                        .purchase.m-auto
+                            .icon-left
+                                i.fas.fa-phone-volume
+                            .title-right
+                                span Mua hàng online
+                                p 036 7588955
+                        //
+                            <div class="hotline-header">
+                            Mua hàng Online
+                            <br />
+                            <b>036 7588955</b>
+                            </div>
+            .container
+                .row
+                    .col-lg-12.from-header
+                        strong Địa chỉ: Đội 3, Hải Thọ, Hải Lăng, Quảng Trị. Tel: 0367.588.955 - 0987.443.621
+            .container
+                .text-run.row
+                    marquee(direction='left', scrollamount='8')
+                        strong Chào mừng khách hàng đến với đại lý Khoai Tây
+        section.sticky-top
+            .container
+                nav.navbar.navbar-expand-lg.navbar-light.bg-light.row
+                    .navbar-toggler.m-auto
+                        button.navbar-toggler(role='button', data-toggle='collapse', data-target='#navbarSupportedContent')
+                            span.navbar-toggler-icon
+                        span.navbar-toggler ĐẠI LÝ KHOAI TÂY
+                    #navbarSupportedContent.collapse.navbar-collapse.col-md-9
+                        ul.navbar-nav
+                            li.nav-item.active
+                                a.nav-link(href='/')
+                                    span.fas.fa-home
+                            li.nav-item.dropdown
+                                a#text-menu.nav-link.dropdown-toggle.text-center(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                    | Giới thiệu
+                                ul#DropD.dropdown-content
+                                    li
+                                        a.dropdown-item(href='#') Giới thiệu đại lý
+                                    li
+                                        a.dropdown-item(href='#') Cơ cấu hình thành
+                                    li
+                                        a.dropdown-item(href='#') Sự phát triển
+                                    li
+                                        a.dropdown-item(href='#') Quy trình sản xuất
+                                    li.dropdown-item.nav-item.dropright
+                                        a#navbarDropdown3.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                            | Đại lý
+                                        .dropdown-menu(aria-labelledby='navbarDropdown3')
+                                            a.dropdown-item(href='#') Chủ đại lý
+                                            a.dropdown-item(href='#') Thư ký - Kế toán
+                                            a.dropdown-item(href='#') Công nhân
+                            li.nav-item.dropdown
+                                a#text-menu.nav-link.dropdown-toggle.text-center(href='#', data-toggle='dropdown') Dịch vụ
+                                ul.dropdown-content
+                                    li
+                                        a.dropdown-item(href='#') Thu mua lúa gạo
+                                    li
+                                        a.dropdown-item(href='#') Cung cấp lúa gạo
+                                    li
+                                        a.dropdown-item(href='#') Cung cấp thức ăn chăn nuôi
+                                    li
+                                        a.dropdown-item(href='#') Vận chuyển tận nơi
+                            li.nav-item.dropdown
+                                a#text-menu.nav-link.dropdown-toggle.text-center(href='#', data-toggle='dropdown') Tuyển dụng
+                                ul.dropdown-content
+                                    li
+                                        a.dropdown-item(href='#') Công nhân
+                                    li
+                                        a.dropdown-item(href='#') Đại lý cấp dưới
+                            li.nav-item
+                                a#text-menu.nav-link.text-center(href='#') Vì sao chọn chúng tôi
+                            li.nav-item
+                                a#text-menu.nav-link.text-center(href='#') Hỏi đáp
+                            li.nav-item
+                                a#text-menu.nav-link.text-center(href='#') Liên hệ
+                    .col-md-3.header-right.m-auto
+                        .order-header
+                            .format-order
+                                .order
+                                    span#my-order 
+                                        a(href="/shopping-cart") Đơn hàng của bạn
+                                #amount
+                                    | Số lượng
+                                    span#sl #{tongSoLuong}
+        
+        block content
+
+        footer.container
+            .row.footer-1
+                .col-md-4.info-1
+                    h4 Thông tin công ty
+                    p
+                        i.fa.fa-map-marker-alt.fa-fw
+                        |  Địa chỉ: Đội 3, Thôn 2, Hải Thọ, Hải Lăng, Quảng Trị
+                    p
+                        i.fa.fa-phone.fa-fw
+                        |  Số điện thoại: 0987443621 - 01667588955
+                    p
+                        i.fa.fa-envelope.fa-fw
+                        |  Email: nhuson2306@gmail.com
+                    p
+                        i.fa.fa-globe.fa-fw
+                        |  Website: luagaoquangtri.vn
+                .col-md-4.info-2
+                    h4 Về lúa gạo
+                    ul
+                        li
+                            a(href='') Lúa mới
+                        li
+                            a(href='') Lúa cũ
+                        li
+                            a(href='') Lúa tồn kho
+                .col-md-4
+                    h4 Về thức ăn chăn nuôi
+                    ul
+                        li
+                            a(href='') Thức ăn lứa nhỏ
+                        li
+                            a(href='') Thức ăn lứa vừa
+                        li
+                            a(href='') Thức ăn lúa lớn
+            .row.footer-2
+                #footer-center.col-lg-12
+                    span
+                        | @ Copyright 2018 Xoan | Mua bán lúa gạo - Thức ăn chăn nuôi Quảng Trị 
+                        a(href='https://www.facebook.com/sontocxoan.congnghe') Designed By Nguyễn Như Sơn
+                        | .
+        a#back-to-top.btn.btn-danger.btn-lg.back-to-top(href='#', role='button', title='Về đầu trang', data-toggle='tooltip', data-placement='left')
+            span.fas.fa-angle-up
+
+
+        script(src='/js/myJS.js')
+        block script

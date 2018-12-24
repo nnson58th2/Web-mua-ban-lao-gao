@@ -1,0 +1,60 @@
+extends layout-employer
+
+include _includes/sharedHTMLfunctions
+
+block content
+    main.container
+        .row
+            .col-12
+                +showDonHangChiTiet(donHang)
+                //- .content
+                //-     .title-order
+                //-         ul
+                //-             li.name-customer Tên khách hàng
+                //-             li.address Địa chỉ
+                //-             li.phone Số điện thoại
+                //-             li.set-data Ngày đặt hàng
+                //-             li.sum-price Thành tiền
+                //-     .list-order
+                //-         ul.f-list-order
+                //-             li.name-customer Nguyễn Như Sơn
+                //-             li.address Nha Trang - Khánh Hòa
+                //-             li.phone 0985 407 705
+                //-             li.set-data 09 - 12 - 2018
+                //-             li.sum-price 48000 đ
+                //-     .title-product.text-center
+                //-         span Chi tiết đơn hàng
+                //-     .the-order
+                //-         ul.format-order
+                //-             li.product-order Sản phẩm
+                //-             li.price-order Giá
+                //-             li.amount-order Số lượng
+                //-             li.sum-order Tổng cộng
+                //-             li.delivery-date Ngày giao hàng
+                //-     .the-order
+                //-         ul.b-d
+                //-             li.product-order
+                //-                 ul
+                //-                     li.img-order
+                //-                         img(src='images/gao-lut-huyet-rong.jpg', alt='')
+                //-                     li
+                //-                         span Gạo lứt huyết rồng
+                //-             li.price-order 23000 đ
+                //-             li.amount-order
+                //-                 input.input-text(type='number', step='1', min='0', name='', value='1', title='SL', size='4')
+                //-             li.sum-order 23000 đ
+                //-             li.delivery-date 12 - 2 - 2018
+                //-     .the-order
+                //-         ul.b-d
+                //-             li.product-order
+                //-                 ul
+                //-                     li.img-order
+                //-                         img(src='images/gokhangdan.jpg', alt='')
+                //-                     li
+                //-                         span Gạo siêu ngon
+                //-             li.price-order 25000 đ
+                //-             li.amount-order
+                //-                 input.input-text(type='number', step='1', min='0', name='', value='1', title='SL', size='4')
+                //-             li.sum-order 25000 đ
+                //-             li.delivery-date 12 - 2 - 2018
+                

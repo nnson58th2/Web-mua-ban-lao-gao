@@ -1,0 +1,138 @@
+extends layout
+include _includes/sharedHTMLfunctions
+
+block content
+    section
+        .container
+            .row
+                .col-xs-12.col-sm-12.col-md-2.danh-muc
+                    .art-vmenublockheader
+                        h3.text-center danh mục sản phẩm
+                    ul.category
+                        li.title-category Lúa gạo
+                        ul.content-category
+                            li + Gạo Khang Dân
+                            li + Gạo Dẻ
+                            li + Gạo Thơm
+                            li + Gạo Tấm
+                            li + Gạo Nếp
+                        li.title-category Thức ăn chăn nuôi
+                        ul.content-category
+                            li + Mới tách mẹ
+                            li + Sau 2 tháng
+                            li + Sau 4 tháng
+                            li + Sau 6 tháng
+                            li + Chuẩn bị xuất chuồng
+                .col-xs-12.col-sm-12.col-md-10.slide-img
+                    #myCarousel.carousel.slide.carousel-fade(data-ride='carousel', data-interval='2000')
+                        ol.carousel-indicators
+                            li.active(data-target='#myCarousel', data-slide-to='0')
+                            li(data-target='#myCarousel', data-slide-to='1')
+                            li(data-target='#myCarousel', data-slide-to='2')
+                        .carousel-inner
+                            .carousel-item.active
+                                img.d-block.w-100(src='/images/BH-đại-lý-khoai-tây.jpg', alt='Đại lý Khoai Tây Quảng Trị')
+                            .carousel-item
+                                img.d-block.w-100(src='/images/mat-tien-1.jpg', alt='Cửa hàng Khoai Tây')
+                            .carousel-item
+                                img.d-block.w-100(src='/images/mat-tien-2.jpg', alt='Xay xát lúa gạo')
+                        a.carousel-control-prev(href='#myCarousel', role='button', data-slide='prev')
+                            span.carousel-control-prev-icon(aria-hidden='true')
+                            span.sr-only Previous
+                        a.carousel-control-next(href='#myCarousel', role='button', data-slide='next')
+                            span.carousel-control-next-icon(aria-hidden='true')
+                            span.sr-only Next
+                            
+        .container.wrapper
+            .row.four-blocks.text-center
+                .col-6.col-sm-3.four_box.block-1
+                    p.img-play
+                        img(src='/images/dinh-duong.jpg', alt='Dinh dưỡng')
+                    h2 Dinh Dưỡng
+                    .block-one-des
+                        | Đại lý Khoai Tây là đại lý gạo uy tín cung cấp gạo dinh dưỡng có xuất xứ và nguồn gốc rõ ràng
+                .col-6.col-sm-3.four_box.block-2
+                    p.img-play
+                        img.img-format(src='/images/tien-loi.png', alt='Tiện lơi')
+                    h2 Tiện lợi
+                    .block-one-des
+                        | Đại lý Khoai Tây giao hàng tận nơi, nhanh chóng tới khách hàng bất kể nắng hay mưa, xa hay gần
+                .col-6.col-sm-3.four_box.block-3
+                    p.img-play
+                        img(src='/images/uy-tin.jpg', alt='Uy tín')
+                    h2 Uy tín
+                    .block-one-des
+                        | Đại lý Khoai Tây làm việc và kinh doanh dựa sản phầm chất lượng và uy tín bền vừng với khách hàng
+                .col-6.col-sm-3.four_box.block-4
+                    p.img-play
+                        img(src='/images/an-toan.jpg', alt='An toàn')
+                    h2 An toàn
+                    .block-one-des
+                        | Đại lý Khoai Tây cam kết đem tới sản phẩm gạo an toàn và được người dung đánh giá tốt
+
+
+    main.container
+                .row
+                    .col-xs-12.col-sm-12.col-md-2.tintuc-1
+                        .art-layout-cell.art-sidebar1
+                            .art-vmenublock.clearfix
+                                .art-vmenublockheader
+                                    h3.t Lĩnh vực hoạt động
+                                .art-vmenublockcontent
+                                    ul.art-vmenu
+                                        li
+                                            a(href='#') Sản xuất trấu viên
+                                        li
+                                            a(href='#') Thương Mại
+                            .art-vmenublock.clearfix
+                                .art-vmenublockheader
+                                    h3.t Tổng Quan
+                                .art-vmenublockcontent
+                                    ul.art-vmenu
+                                        li
+                                            a(href='#') Giới thiệu công ty
+                                        li
+                                            a(href='#') Tầm nhìn - Sứ mệnh
+                                        li
+                                            a(href='#') Hoạt động công ty
+                                        li
+                                            a(href='#') Phương thức thanh toán
+                            .art-block.clearfix
+                                .art-vmenublockheader
+                                    h3.t Hỗ trợ khách hàng
+                                .hotro.bg-white
+                                    img(src='/images/ho-tro-khach-hang.png', alt='Hỗ trợ khách hàng')
+                                    a(href='tel:01667588955') 0367.588.955
+                    .col-xs-12.col-sm-12.col-md-8.content
+                        .title-product
+                            span
+                                i.fab.fa-product-hunt
+                                |  Sản Phẩm Lúa Gạo
+                        .row.content-product
+                            +showListSanPham(listSanPham)
+                                                                 
+                    .col-xs-12.col-sm-12.col-md-2.tintuc-2
+                        .art-layout-cell.art-sidebar2
+                            .art-vmenublock.clearfix
+                                .art-vmenublockheader
+                                    h3.t Tin mới nhất
+                                .art-vmenublockcontent
+                                    ul.art-vmenu
+                                        li
+                                            a(href='#') Lúa gạo tăng
+                                        li
+                                            a(href='#') Thức ăn chăn nuôi đổi
+                                        li
+                                            a(href='#') Giá sản phầm giảm nhẹ
+                                        li
+                                            a(href='#') Cất trữ thu lợi nhuận
+                                .art-vmenublockheader
+                                    h3.t Hình ảnh sản phẩm
+                                .art-vmenublockcontent.wave
+                                    ul.art-vmenu.text-center
+                                        li
+                                            a(href='#')
+                                                img#img-sp(src='/images/gao-khang-dan.jpg', alt='')
+                                        li
+                                            a(href='#')
+                                                img#img-sp(src='/images/thuc-an-chan-nuoi.jpg', alt='')

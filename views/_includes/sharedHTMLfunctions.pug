@@ -1,0 +1,150 @@
+mixin outputRating(rating)
+    - for (var i = 1; i <= rating; i++)
+        span.glyphicon.glyphicon-star
+    - for (i = rating; i < 5; i++)
+        span.glyphicon.glyphicon-star-empty
+
+mixin formatDate(dateString)
+    -var date = new Date(dateString);
+    -var d = date.getDate();
+    //- -var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    -var monthNames = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ];
+    -var m = monthNames[date.getMonth()];
+    -var y = date.getFullYear();
+    -var output = d + ' ' + m + ' ' + y;
+    =output
+
+mixin showListSanPham(sp)
+    - for (var i = 0; i < sp.length; i++)
+        .col-6.col-md-3.product.khangdan
+            .img-pro
+                img(src=sp[i].anh, alt='')
+            ul
+                li
+                    span.price #{sp[i].donGia}đ/ 50Kg
+                li
+                    a(href='#') #{sp[i].tenSanPham}
+                li
+                    - if (sp[i].soLuong)
+                        i.fas.fa-check
+                        p Còn hàng
+                        a.btn.btn-success(href="/add-to-cart/" + sp[i]._id) Thêm vào đơn
+                    - else
+                        i.fas.fa-times
+                        p Hết hàng
+                        a.btn.btn-success(href="#", style="pointer-events: none; cursor: default;") Thêm vào đơn
+
+
+mixin showListSanPham2(sp)
+    - for (var i = 0; i < sp.length; i++)
+        .col-6.col-md-3.product.vit
+            .img-pro
+                img(src=sp[i].anh, alt='')
+            ul
+                li
+                    span.price #{sp[i].donGia} đ/ 50Kg
+                li
+                    a(href='#') #{sp[i].tenSanPham}
+                li
+                    - if (sp[i].soLuong)
+                        i.fas.fa-check
+                        p Còn hàng
+                        p Số lượng: #{sp[i].soLuong} bao
+                    - else
+                        i.fas.fa-times
+                        p Hết hàng
+                        p Số lượng: #{sp[i].soLuong} bao
+                li
+                    a.edit(href='#', data-toggle='modal', data-target='#edit', id= sp[i]._id) Sửa
+                    a.remove(href='/employer/sanpham/remove/' + sp[i]._id) Xóa
+                    
+mixin showCart2(cart)
+    -for (var i = 0; i < cart.length; i++)
+        ul.b-d
+            li.product-order
+                ul
+                    li.img-order
+                        img(src=cart[i].sanpham.anh, alt='')
+                    li
+                        span #{cart[i].sanpham.tenSanPham}
+            li.price-order #{cart[i].sanpham.donGia} đ/50kg
+            li.amount-order
+                //- input.input-text(type='number', step='1', min='0', name='', value=cart[i].soLuong, title='SL', size='4')
+                p #{cart[i].soLuong}
+                    span
+                        a.btn.btn-default(href="/increase/" + cart[i].sanpham._id)
+                            i.up.arrow
+                    span
+                        a.btn.btn-default(href="/reduce/" + cart[i].sanpham._id)
+                            i.down.arrow
+            li.sum-order #{cart[i].tongTien} đ
+            li.product-remove
+                a(href="/remove/" + cart[i].sanpham._id) X
+
+mixin showListDonHang(listDonHang)
+    -for (var i = 0; i < listDonHang.length; i++)
+        .list-order
+            ul.f-list-order
+                li.name-customer #{listDonHang[i].tenKhachHang}
+                li.address #{listDonHang[i].diaChi}
+                li.phone #{listDonHang[i].dienThoai}
+                //- li.already
+                //-     input(type='radio', name='checkbox2', value='')
+                //- li.no
+                //-     input(type='radio', name='checkbox2', value='', checked='checked')
+                li
+                    a(href='/employer/donhang/' + listDonHang[i]._id) Chi tiết đơn hàng
+
+mixin showDonHangChiTiet(dh)
+    .content
+        .title-order
+            ul
+                li.name-customer Tên khách hàng
+                li.address Địa chỉ
+                li.phone Số điện thoại
+                li.set-data Ngày đặt hàng
+                li.sum-price Thành tiền
+        .list-order
+            ul.f-list-order
+                li.name-customer #{dh.tenKhachHang}
+                li.address #{dh.diaChi}
+                li.phone #{dh.dienThoai}
+                li.set-data #{dh.ngayDatHang}
+                li.sum-price #{dh.thanhTien} đ
+        .title-product.text-center
+            span Chi tiết đơn hàng
+        .the-order
+            ul.format-order
+                li.product-order Sản phẩm
+                li.price-order Giá
+                li.amount-order Số lượng
+                //- li.delivery-date Ngày giao hàng
+        - for (var i = 0 ; i < dh.sanPham.length; i++)
+            .the-order
+                ul.b-d
+                    li.product-order
+                        ul
+                            li.img-order
+                                img(src='images/gao-lut-huyet-rong.jpg', alt='')
+                            li
+                                span #{dh.sanPham[i].tenSanPham}
+                    li.price-order #{dh.sanPham[i].donGia} đ
+                    li.amount-order
+                        input.input-text(type='number', step='1', min='0', name='', value=dh.sanPham[i].soLuong, title='SL', size='4')
+                    //- - if(dh.sanPham[i].ngayGiaoHang)
+                    //-     li.delivery-date #{dh.sanPham[i].ngayGiaoHang}
+                    //- - else
+                    //-     li.delivery-date Chưa xác định
+        //- .the-order
+        //-     ul.b-d
+        //-         li.product-order
+        //-             ul
+        //-                 li.img-order
+        //-                     img(src='images/gokhangdan.jpg', alt='')
+        //-                 li
+        //-                     span Gạo siêu ngon
+        //-         li.price-order 25000 đ
+        //-         li.amount-order
+        //-             input.input-text(type='number', step='1', min='0', name='', value='1', title='SL', size='4')
+        //-         li.sum-order 25000 đ
+        //-         li.delivery-date 12 - 2 - 2018

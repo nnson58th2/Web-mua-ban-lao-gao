@@ -1,0 +1,31 @@
+{
+  "name": "cay-cu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.3",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^4.12.4",
+    "morgan": "^1.9.0",
+    "multer": "^1.4.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.0-rc.4",
+    "readline": "0.0.x",
+    "request": "^2.85.0",
+    "serve-favicon": "^2.4.5"
+  }
+}

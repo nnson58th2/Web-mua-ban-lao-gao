@@ -1,0 +1,41 @@
+extends layout
+
+include _includes/sharedHTMLfunctions
+
+block head
+    link(rel='stylesheet', href='/css/order.css')
+
+block content
+    main.container
+        .row
+            .col-12.myOrder
+                h2 Đơn hàng của bạn
+            .col-12.col-md-9.the-order
+                .col-12
+                    ul.format-order
+                        li.product-order Sản phẩm
+                        li.price-order Giá
+                        li.amount-order Số lượng
+                        li.sum-order Tổng cộng
+                    +showCart2(cart)
+            .col-12.col-md-3
+                .pay-order
+                    h3 Thành tiền
+                    .row.sum-title
+                        .col-8 Tổng cộng
+                        .col-4 #{thanhTien} đ
+                .modal-content
+                    .modal-header
+                        h5.modal-title Điền thông tin đặt hàng
+                    form#form-order(action='/submit', method='POST')
+                        .modal-body
+                            input(type='text', placeholder=' Tên khách hàng', name="tenKhachHang", required)
+                            br
+                            br
+                            input(type='text', placeholder=' Địa chỉ giao hàng', name="diaChi", required)
+                            br
+                            br
+                            input(type='text', placeholder=' SĐT', name="dienThoai", required)
+                            br
+                            br
+                            button(type='submit', form='form-order', value='submit') Đặt hàng

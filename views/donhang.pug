@@ -1,0 +1,42 @@
+extends layout-employer
+
+include _includes/sharedHTMLfunctions
+
+block content
+    main.container
+        .row
+            .col-12
+                .content
+                    .title-product.text-center
+                        span Danh sách đơn hàng
+                    .title-order
+                        ul
+                            li.name-customer Tên khách hàng
+                            li.address Địa chỉ
+                            li.phone Số điện thoại
+                            //- li.already Đã xác nhận
+                            //- li.no Chưa xác nhận
+                    +showListDonHang(listDonHang)
+                    //- .list-order
+                    //-     ul.f-list-order
+                    //-         li.name-customer Nguyễn Như Sơn
+                    //-         li.address Nha Trang - Khánh Hòa
+                    //-         li.phone 0985 407 705
+                    //-         li.already
+                    //-             input(type='radio', name='checkbox1', value='')
+                    //-         li.no
+                    //-             input(type='radio', name='checkbox1', value='', checked='checked')
+                    //-         li
+                    //-             a(href='#') Chi tiết đơn hàng
+                    //- .list-order
+                    //-     ul.f-list-order
+                    //-         li.name-customer Trần Hoàng Anh
+                    //-         li.address Diên Khánh - Nha Trang - Khánh Hòa
+                    //-         li.phone 038 3096008
+                    //-         li.already
+                    //-             input(type='radio', name='checkbox2', value='')
+                    //-         li.no
+                    //-             input(type='radio', name='checkbox2', value='', checked='checked')
+                    //-         li
+                    //-             a(href='#') Chi tiết đơn hàng
+    script(src='/js/myJS.js')

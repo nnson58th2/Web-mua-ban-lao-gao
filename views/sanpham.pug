@@ -1,0 +1,109 @@
+extends layout-employer
+
+include _includes/sharedHTMLfunctions
+
+block content
+    main.container
+        .row
+            .col-12.content
+
+                .container
+                    .row.add-product
+                        a.add(href='#', data-toggle='modal', data-target='#add') Thêm sản phẩm
+                    #add.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                        .modal-dialog(role='document')
+                            .modal-content
+                                .modal-header
+                                    h5#exampleModalLabel.modal-title Điền thông tin sản phẩm thêm
+                                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                        span(aria-hidden='true') ×
+                                        // Dấu đóng cửa sổ
+                                form(action='/employer/sanpham', method='POST', enctype="multipart/form-data")
+                                    .modal-body
+                                        input(type='file', name='anh')
+                                        input(type='text', placeholder=' Giá sản phẩm', name='donGia')
+                                        input(type='text', placeholder=' Tên sản phẩm', name='tenSanPham')
+                                        input(type='number', placeholder=' Số lượng sản phẩm', name='soLuong')
+                                    .modal-footer
+                                        button#bt.btn.btn-primary(type='submit') Hoàn tất
+                .content
+                    #san-pham
+                        .title-product
+                            span
+                                i.fab.fa-product-hunt
+                                |  Sản Phẩm
+                        .row.content-product
+                            +showListSanPham2(listSanPham)
+                            //- .col-6.col-md-3.product.khangdan
+                            //-     .img-pro
+                            //-         img(src='/images/gao-khang-dan.jpg', alt='')
+                            //-     ul
+                            //-         li
+                            //-             span.price 35.000 đ/ 10Kg
+                            //-         li
+                            //-             a(href='#') Gạo khang dân lẻ
+                            //-         li
+                            //-             i.fas.fa-check
+                            //-             p Còn hàng
+                            //-             | Số lượng 20 bao
+                            //-         li
+                            //-             a.edit(href='#', data-toggle='modal', data-target='#edit') Sửa
+                            //-             a.remove(href='#') Xóa
+                            
+                            #edit.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                                .modal-dialog(role='document')
+                                    .modal-content
+                                        .modal-header
+                                            h5#exampleModalLabel.modal-title Điền thông tin sửa
+                                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                span(aria-hidden='true') ×
+                                                // Dấu đóng cửa sổ
+                                        form#edit-form(action='#', method='post', enctype="multipart/form-data")
+                                            .modal-body
+                                                input(type='file', name='anh')
+                                                input(type='text', placeholder=' Giá sản phẩm',name='donGia')
+                                                input(type='text', placeholder=' Tên sản phẩm', name='tenSanPham')
+                                                input(type='number', placeholder=' Số lượng sản phẩm', name='soLuong')
+                                            .modal-footer
+                                                button#bt.btn.btn-primary(type='submit') Hoàn tất
+        
+    script(src='/js/myJS.js')
+    script.
+        let listSP = document.querySelector("#san-pham");
+        console.log(listSP);
+        listSP.addEventListener("click", function (e) {
+            console.log(e.target.className);
+            if (e.target.className === "edit") {
+                console.log(e.target.id);
+
+                var listSanPham = JSON.parse('!{JSON.stringify(listSanPham)}')
+
+                var result = {};
+
+                for (let i = 0 ; i < listSanPham.length; i++) {
+                    if (listSanPham[i]._id === e.target.id)
+                        result = listSanPham[i];
+                }
+
+                console.log(result);
+                //- let donGia = result.donGia;
+                //- let soLuong = result.;
+                //- let tenSanPham;
+
+
+
+
+                let form = document.querySelector("#edit-form");
+                let input = form.childNodes[0].childNodes;
+
+
+                form.setAttribute("action", "/employer/sanpham/update/" + result._id)
+
+                input[1].value = result.donGia;
+                input[2].value = result.tenSanPham;
+                input[3].value = result.soLuong;
+
+                console.log("form:", form);
+                console.log("input:", input);
+            }
+        });
