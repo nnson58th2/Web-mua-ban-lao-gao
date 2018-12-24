@@ -1,6 +1,6 @@
 Báo cáo thực tập chuyên ngành
 
-Trò chơi: Cờ Caro
+Website: Mua bán lúa gạo Khoai Tây
 
 GVHD: Hà Thị Thanh Ngà
 
